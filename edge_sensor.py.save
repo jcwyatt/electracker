@@ -1,0 +1,36 @@
+#!/usr/bin/env python
+     
+# Example for RC timing reading for Raspberry Pi
+# Must be used with GPIO 0.3.1a or later - earlier verions
+# are not fast enough!
+     
+import RPi.GPIO as GPIO, time, os
+import sqlite3
+
+#initiaise database tools
+#conn = sqlite3.connect('lightlevels.db')
+#c =  conn.cursor()
+
+#create database
+#c.execute("CREATE TABLE lightlevel (data text, level integer)")
+
+
+
+#initialise pins     
+DEBUG = 1
+GPIO.setmode(GPIO.BCM)
+  
+#1)set pin low
+#2)wait for rising edge
+#3)start timer
+#4)Wait for rising edge
+#5)stop timer and log or print time since last event
+#6)reset and restart timer
+#7) repeat
+
+
+
+#stop properly!
+except KeyboardInterrupt:  
+    GPIO.cleanup()       # clean up GPIO on CTRL+C exit  
+GPIO.cleanup()           # clean up GPIO on normal exit        
