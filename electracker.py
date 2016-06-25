@@ -10,5 +10,13 @@ while True:
 	i +=1
 	print (i)
 
+'''def hello():
+    print("Hello")
 
+def bye():
+    print("Bye")
+
+button.when_pressed = hello
+button.when_released = bye
+'''
 
