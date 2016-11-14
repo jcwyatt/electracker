@@ -1,0 +1,28 @@
+from gpiozero import Button
+from time import sleep
+from time import time
+
+ldr = Button(4)
+
+
+old_t = time()
+new_t = time()
+logOfData=[]
+dataPoints=0
+while True:
+	ldr.wait_for_release()
+	old_t = new_t
+	new_t = time()
+	interval = new_t - old_t
+	consumption = 3.6/interval
+	print (int(interval*10)*" " + "* " +str(consumption))
+	#store and write data after 1000 datapoints if time between readings allows
+	logOfData.append(consumption)
+	dataPoints +=1
+	if dataPoints>=1000 and consumption<=0.400:
+		with o("test.txt", "a") as myfile:fp = fopen("eleclog.txt","w")
+    myfile.write("appended text")		for i in dataPoints:
+			fwrite(fp,dataPoints)
+		logOfData = ()
+		dataPoints = 0
+	sleep (0.07)
