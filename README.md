@@ -1,6 +1,28 @@
 Electracker Project
 ===================
 
+A project to monitor electricity consumption in my home by using a Raspberry Pi to calculate and publish real-time consumption data. My meter wasn't smart.
+
+Current Status Aug 2019
+-----------------------
+
+electracker_bars.py is the code that runs fulltime.
+
+It counts the flashes on the electrcity meter ever 2 mins and publishes this to thingspeak:
+https://thingspeak.com/channels/182833
+
+recent updates were to add publishing to an MQTT broker so the data was easily accessible on a phone and also could be analysed and processed better.
+
+
+
+
+
+
+
+
+Original Ideas
+==============
+
 A) To monitor electricity consumption
 B) To transmit data via MQTT
 C) To output data to webpage / hardware display
