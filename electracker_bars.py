@@ -1,11 +1,11 @@
-import httplib, urllib
+import httplib, urllib, paho.mqtt.client as mqtt
 from gpiozero import Button
 from time import sleep
 from time import time
 
 ldr = Button(4)
 
-barTime = 20  #length of each record cycle
+barTime = 120  #length of each record cycle
 
 while True:
 	flashes = 0
@@ -18,7 +18,7 @@ while True:
 		#print("flash" + str(flashes))
 		sleep(0.07)			
 		
-	consumption = 1.125/(barTime/flashes)
+	consumption = 1.125/(float(barTime)/float(flashes))
 #	print (int(flashes*5)*" " + "* " +str(consumption))
 
 #write to thingspeak:
@@ -34,3 +34,14 @@ while True:
 		conn.close()
 	except:
 		print("Couldn't write to TS")
+
+#write to MQTT
+
+	try: 
+		client = mqtt.Client("electrackerpi")
+		client.connect("broker.hivemq.com")
+		client.publish("78lvdb/burnrate",consumption)
+		print("published consumption to MQTT")
+	except:
+		print("Couldn't write to MQTT")
+
