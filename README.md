@@ -63,4 +63,11 @@ Monitoring Algorithms - Pros - Cons
 	Harder to program
 
 
+GPIO Settings for Heaters
+-------------------------
+
+Jordans Room: GPIO26
+Shower: GPIO27
+Tobi: GPIO28
+MasterBed: GPIO29
 
